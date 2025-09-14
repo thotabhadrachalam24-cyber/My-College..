@@ -149,8 +149,8 @@
   <div class="dashboard" id="dashboard">
     <div class="toggle-btn" id="toggleBtn">×</div>
     <h2>User Details</h2>
-    <p id="userName">Name: RsB</p>
-    <p id="userPhone">Phone: 9010105077</p>
+    <p id="userName">Name: John Doe</p>
+    <p id="userPhone">Phone: 9876543210</p>
     <p id="userDept">Department: Computer Science</p>
   </div>
 
@@ -215,7 +215,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <h2>Contact Us</h2>
-      <form>
+      <form id="contactForm">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
@@ -225,14 +225,31 @@
 
     <!-- Footer -->
     <footer>
-      &copy; 2025 My College |   
+      &copy; 2025 My College |
       <a href="#">Facebook</a>
       <a href="#">Twitter</a>
       <a href="#">Instagram</a>
     </footer>
   </div>
 
-  <script>
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAfUjONUkY3L5RTipS2Si3rrkpXbeuRmIM",
+      authDomain: "mycollegedb.firebaseapp.com",
+      projectId: "mycollegedb",
+      storageBucket: "mycollegedb.appspot.com",
+      messagingSenderId: "512986030266",
+      appId: "1:512986030266:web:af41abe8bdacacd9c8a283",
+      measurementId: "G-T52EF0DNC4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
     // Dashboard toggle
     const toggleBtn = document.getElementById('toggleBtn');
     const dashboard = document.getElementById('dashboard');
@@ -246,18 +263,38 @@
       toggleBtn.textContent = dashboard.classList.contains('hidden') ? '☰' : '×';
     });
 
-    // Update dashboard dynamically from login form
+    // Login Form
     const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = loginForm.username.value;
       const phone = loginForm.phone.value;
+
+      set(ref(database, 'users/' + phone), { username: name, phone: phone })
+      .then(() => alert('✅ Login saved to database!'))
+      .catch((err) => alert('❌ Error: ' + err));
+
       document.getElementById('userName').textContent = 'Name: ' + name;
       document.getElementById('userPhone').textContent = 'Phone: ' + phone;
+
       loginForm.reset();
-      if(dashboard.classList.contains('hidden')){
-        toggleBtn.click(); // Open dashboard if closed
-      }
+      if(dashboard.classList.contains('hidden')) toggleBtn.click();
+    });
+
+    // Contact Form
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = contactForm.name.value;
+      const email = contactForm.email.value;
+      const message = contactForm.message.value;
+
+      const newMessageRef = push(ref(database, 'messages'));
+      set(newMessageRef, { name, email, message })
+      .then(() => alert('✅ Message sent!'))
+      .catch((err) => alert('❌ Error: ' + err));
+
+      contactForm.reset();
     });
   </script>
 </body>
