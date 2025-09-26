@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My College Website</title>
   <style>
-    /* Reset */
     * {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
-
-    /* Watermark */
     body::before {
       content: "𝐑𝐒𝐁_𝟗𝟗𝟗𝟓💥✨";
       position: fixed;
@@ -22,8 +19,6 @@
       white-space: nowrap;
     }
     body > * {position: relative; z-index: 1;}
-
-    /* Body with animated gradient */
     body {
       scroll-behavior: smooth;
       line-height: 1.6;
@@ -37,8 +32,6 @@
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-
-    /* Dashboard */
     .dashboard {
       position: fixed;
       left: 0;
@@ -71,8 +64,6 @@
       font-weight: bold;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
-
-    /* Navigation */
     nav {
       position: sticky;
       top:0;
@@ -93,47 +84,39 @@
     nav ul li {margin-left:20px;}
     nav ul li a {color:#fff; text-decoration:none; font-weight:500;}
     nav ul li a:hover {text-decoration:underline;}
-
-    /* Content Sections */
     .content {flex:1; margin-left: 220px; transition: margin-left 0.3s;}
     .content.shifted {margin-left:0;}
-
     .hero {height: 100vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1596495577886-d920f1f0c857?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; text-align:center;}
     .hero h1 {font-size:3rem; margin-bottom:20px;}
     .hero p {font-size:1.2rem; margin-bottom:30px;}
     .hero a {text-decoration:none; background:#ff6a00; padding:12px 25px; color:#fff; border-radius:8px; font-weight:bold; transition:0.3s;}
     .hero a:hover {background:#ee0979;}
-
     section {padding:80px 20px; max-width:1100px; margin:auto; border-radius:20px; margin-bottom:30px;}
-
     .about {text-align:center; background: linear-gradient(120deg, #f6d365, #fda085); color:#fff;}
     .about h2 {margin-bottom:20px; color:#fff;}
     .about p {max-width:700px; margin:auto; font-size:1rem; color:#fff;}
-
     .departments {display:flex; flex-wrap:wrap; justify-content:center; gap:20px; background: linear-gradient(120deg, #a1c4fd, #c2e9fb); padding:50px 20px;}
     .department-card {background:#fff; padding:30px; width:250px; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s, background 0.3s;}
     .department-card:hover {transform: translateY(-10px); background: linear-gradient(135deg, #ff9a9e, #fad0c4);}
     .department-card h3 {margin-bottom:10px; color:#ff6a00;}
     .department-card p {font-size:0.95rem; color:#555;}
-
     .login-box {background: linear-gradient(135deg, #84fab0, #8fd3f4); color:#333; padding:40px 30px; max-width:400px; margin:40px auto; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.2); text-align:center;}
     .login-box h2 {margin-bottom:25px; color:#ff6a00;}
     .login-box input {width: 100%; padding:12px 15px; margin:12px 0; border:1px solid #ccc; border-radius:8px; font-size:1rem;}
     .login-box input:focus {border-color:#ff6a00; outline:none;}
+    .login-box select {width: 100%; padding:12px 15px; margin:12px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem;}
+    .login-box select:focus {border-color:#ff6a00; outline:none;}
     .login-box button {width:100%; padding:12px 20px; border:none; border-radius:8px; background:#ff6a00; color:#fff; font-size:1rem; cursor:pointer; margin-top:15px; transition:0.3s;}
     .login-box button:hover {background:#ee0979;}
-
     .contact {background: linear-gradient(135deg, #ffecd2, #fcb69f); color:#333; text-align:center; padding:80px 20px;}
     .contact h2 {margin-bottom:20px; color:#ff6a00;}
     .contact form {max-width:500px; margin:auto; display:flex; flex-direction:column;}
     .contact input, .contact textarea {padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem; resize:none;}
     .contact button {padding:12px; border:none; border-radius:8px; background:#ff6a00; color:#fff; font-weight:bold; cursor:pointer; transition:0.3s;}
     .contact button:hover {background:#ee0979;}
-
     footer {background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); color:#fff; text-align:center; padding:20px;}
     footer a {color:#fff; text-decoration:none; margin:0 10px;}
     footer a:hover {text-decoration:underline;}
-
     @media(max-width:768px) {
       body {flex-direction: column;}
       .dashboard {position: relative; width: 100%; border-radius: 0 0 15px 15px;}
@@ -208,6 +191,14 @@
       <form id="loginForm">
         <input type="text" name="username" placeholder="Enter Name" required>
         <input type="tel" name="phone" placeholder="Enter Phone Number" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <select name="department" id="loginDepartment" required>
+          <option value="" disabled selected>Select Department</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Mechanical">Mechanical</option>
+          <option value="Business">Business</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </section>
@@ -269,13 +260,21 @@
       e.preventDefault();
       const name = loginForm.username.value;
       const phone = loginForm.phone.value;
+      const password = loginForm.password.value;
+      const dept = loginForm.department.value;
 
-      set(ref(database, 'users/' + phone), { username: name, phone: phone })
+      set(ref(database, 'users/' + phone), {
+        username: name,
+        phone: phone,
+        password: password,
+        department: dept
+      })
       .then(() => alert('✅ Login saved to database!'))
       .catch((err) => alert('❌ Error: ' + err));
 
       document.getElementById('userName').textContent = 'Name: ' + name;
       document.getElementById('userPhone').textContent = 'Phone: ' + phone;
+      document.getElementById('userDept').textContent = 'Department: ' + dept;
 
       loginForm.reset();
       if(dashboard.classList.contains('hidden')) toggleBtn.click();
