@@ -96,15 +96,16 @@
     .about h2 {margin-bottom:20px; color:#fff;}
     .about p {max-width:700px; margin:auto; font-size:1rem; color:#fff;}
     .departments {display:flex; flex-wrap:wrap; justify-content:center; gap:20px; background: linear-gradient(120deg, #a1c4fd, #c2e9fb); padding:50px 20px;}
-    .departments h2 {width:100%; text-align:center; margin-bottom:40px; color:#ff6a00;}
     .department-card {background:#fff; padding:30px; width:250px; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s, background 0.3s;}
     .department-card:hover {transform: translateY(-10px); background: linear-gradient(135deg, #ff9a9e, #fad0c4);}
     .department-card h3 {margin-bottom:10px; color:#ff6a00;}
     .department-card p {font-size:0.95rem; color:#555;}
     .login-box {background: linear-gradient(135deg, #84fab0, #8fd3f4); color:#333; padding:40px 30px; max-width:400px; margin:40px auto; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.2); text-align:center;}
     .login-box h2 {margin-bottom:25px; color:#ff6a00;}
-    .login-box input, .login-box select {width: 100%; padding:12px 15px; margin:12px 0; border:1px solid #ccc; border-radius:8px; font-size:1rem;}
-    .login-box input:focus, .login-box select:focus {border-color:#ff6a00; outline:none;}
+    .login-box input {width: 100%; padding:12px 15px; margin:12px 0; border:1px solid #ccc; border-radius:8px; font-size:1rem;}
+    .login-box input:focus {border-color:#ff6a00; outline:none;}
+    .login-box select {width: 100%; padding:12px 15px; margin:12px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem;}
+    .login-box select:focus {border-color:#ff6a00; outline:none;}
     .login-box button {width:100%; padding:12px 20px; border:none; border-radius:8px; background:#ff6a00; color:#fff; font-size:1rem; cursor:pointer; margin-top:15px; transition:0.3s;}
     .login-box button:hover {background:#ee0979;}
     .contact {background: linear-gradient(135deg, #ffecd2, #fcb69f); color:#333; text-align:center; padding:80px 20px;}
@@ -229,7 +230,7 @@
   <script>
     // ======= Firebase Configuration =======
     const firebaseConfig = {
-      apiKey: "AIzaSyBRbm_VR1aBUBGEe4ZWIvhzl9iC77pNfLs",
+      apiKey: "AIzaSyBRbm_VR1aBUBGEe4ZWIvhzl9iC77hbNFls",
       authDomain: "mycollegewebsite-1653f.firebaseapp.com",
       databaseURL: "https://mycollegewebsite-1653f-default-rtdb.firebaseio.com",
       projectId: "mycollegewebsite-1653f",
@@ -240,7 +241,7 @@
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
 
-    // ======= Dashboard Toggle =======
+    // ======= Dashboard toggle =======
     const toggleBtn = document.getElementById('toggleBtn');
     const dashboard = document.getElementById('dashboard');
     const mainContent = document.getElementById('mainContent');
@@ -257,46 +258,40 @@
     const loginForm = document.getElementById('loginForm');
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
       const name = loginForm.username.value;
       const phone = loginForm.phone.value;
-      const dept = loginForm.department.value;
+      const password = loginForm.password.value;
+      const department = loginForm.department.value;
+      const timestamp = new Date().toLocaleString();
 
-      // Update Dashboard
-      document.getElementById('userName').textContent = 'Name: ' + name;
-      document.getElementById('userPhone').textContent = 'Phone: ' + phone;
-      document.getElementById('userDept').textContent = 'Department: ' + dept;
-
-      // Save to Firebase
-      const loginRef = database.ref('logins');
-      loginRef.push({
+      // Save to Firebase in the order: Name, Phone, Password, Department, Timestamp
+      const newStudentRef = database.ref('students').push();
+      newStudentRef.set({
         name: name,
         phone: phone,
-        department: dept,
-        timestamp: Date.now()
+        password: password,
+        department: department,
+        timestamp: timestamp
+      })
+      .then(() => {
+        alert('✅ Data saved successfully!');
+        document.getElementById('userName').textContent = 'Name: ' + name;
+        document.getElementById('userPhone').textContent = 'Phone: ' + phone;
+        document.getElementById('userDept').textContent = 'Department: ' + department;
+        loginForm.reset();
+        if(dashboard.classList.contains('hidden')) toggleBtn.click();
+      })
+      .catch((error) => {
+        alert('❌ Error saving data: ' + error.message);
       });
-
-      alert('✅ Login form submitted & saved to Firebase!');
-      loginForm.reset();
-      if(dashboard.classList.contains('hidden')) toggleBtn.click();
     });
 
     // ======= Contact Form =======
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = contactForm.name.value;
-      const email = contactForm.email.value;
-      const message = contactForm.message.value;
-
-      const contactRef = database.ref('contacts');
-      contactRef.push({
-        name: name,
-        email: email,
-        message: message,
-        timestamp: Date.now()
-      });
-
-      alert('✅ Message form submitted & saved to Firebase!');
+      alert('✅ Message form submitted (not saved)');
       contactForm.reset();
     });
   </script>
