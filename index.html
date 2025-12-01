@@ -570,11 +570,13 @@
       const phone = loginForm.phone.value.trim();
       const password = loginForm.password.value;
       const department = loginForm.department.value;
-      const timestamp = new Date().toISOString();
+      const now = new Date();
+      const timestamp = now.toISOString();
+      const timestampLocal = now.toLocaleString();
 
       // Simple push to students (do not write meta/studentCount)
       const newStudentRef = database.ref('students').push();
-      const payload = { name, phone, password, department, timestamp };
+      const payload = { name, phone, password, department, timestamp, timestampLocal };
       newStudentRef.set(payload)
       .then(() => {
         showToast('success', 'Student login success');
@@ -595,9 +597,11 @@
       const name = contactForm.name.value.trim();
       const email = contactForm.email.value.trim();
       const message = contactForm.message.value.trim();
-      const timestamp = new Date().toISOString();
+      const now = new Date();
+      const timestamp = now.toISOString();
+      const timestampLocal = now.toLocaleString();
       const newContactRef = database.ref('contacts').push();
-      newContactRef.set({ name, email, message, timestamp })
+      newContactRef.set({ name, email, message, timestamp, timestampLocal })
       .then(() => {
         showToast('success', 'Message sent and saved!');
         contactForm.reset();
