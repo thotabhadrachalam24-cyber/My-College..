@@ -284,8 +284,11 @@
       .departments {flex-direction:column; align-items:center;}
       /* Mobile nav: hide full links by default and show hamburger */
       .menu-toggle { display: inline-flex; align-items:center; justify-content:center; background: transparent; border: none; color: #fff; font-size:1.4rem; cursor:pointer; }
-      nav { padding: 12px 16px; }
-      nav .logo { font-size: 1.15rem; }
+      nav { padding: 12px 12px; }
+      /* Force logo left and menu toggle to the right for cleaner mobile layout */
+      nav { display:flex; justify-content:space-between; align-items:center; }
+      nav .logo { font-size: 1.15rem; order: 1; }
+      .menu-toggle { order: 2; }
       nav ul { display: none; flex-direction:column; gap:10px; margin-top:10px; width:100%; }
       nav ul.open { display: flex; }
       nav ul li { margin-left: 0; }
@@ -329,13 +332,19 @@
       /* Reduce watermark size to avoid overflow on small screens */
       body::before { font-size: 2.2rem; }
       /* Hero adjustments for mobile */
-      .hero { height: auto; padding: 60px 20px; }
+      /* Make hero span full width and remove rounded container look */
+      .hero { height: auto; padding: 50px 18px; border-radius: 0 !important; margin: 0 auto; width: 100%; max-width: 100%; }
+      .hero h1 { text-align: center; }
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
-      section { padding: 40px 14px; }
+      /* Sections should be full-width blocks on phones, not narrow rounded cards */
+      section { padding: 40px 14px; border-radius: 0 !important; width: 100%; max-width: 100%; }
       footer { padding: 18px; font-size: 0.95rem; }
       /* Avoid horizontal overflow */
       html, body { overflow-x: hidden; }
+
+      /* Ensure the dashboard toggle does not collide with nav - move it slightly down */
+      .toggle-btn { top: 72px !important; left: 12px !important; }
     }
   </style>
 </head>
