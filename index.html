@@ -22,7 +22,7 @@
     body {
       scroll-behavior: smooth;
       line-height: 1.6;
-      background: linear-gradient(135deg, #db686c, #fad0c4, #fbc2eb, #a6c1ee);
+      background: linear-gradient(135deg, #0f172a, #1a2942, #1e3c72, #2a5298);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
       display: flex;
@@ -178,22 +178,22 @@
       top: 0;
       height: 100%;
       width: 220px;
-      background: linear-gradient(135deg, #84fab0, #8fd3f4);
+      background: linear-gradient(135deg, #1a3a52, #0f2f4a);
       padding: 30px 20px;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+      box-shadow: 2px 0 10px rgba(0,0,0,0.4);
       border-radius: 0 15px 15px 0;
       z-index: 100;
       transition: transform 0.3s;
     }
     .dashboard.hidden {transform: translateX(-100%);}
-    .dashboard h2 {margin-bottom: 20px; color: #ff6a00; text-align:center;}
-    .dashboard p {background: #fff; padding: 10px 15px; border-radius: 8px; margin-bottom: 15px; font-weight: bold; color: #333;}
+    .dashboard h2 {margin-bottom: 20px; color: #00d4ff; text-align:center;}
+    .dashboard p {background: #0d1f2d; padding: 10px 15px; border-radius: 8px; margin-bottom: 15px; font-weight: bold; color: #00d4ff;}
     .dashboard .toggle-btn {
       position: absolute;
       top: 10px;
       right: -30px;
-      background: #ff6a00;
-      color: #fff;
+      background: #00d4ff;
+      color: #0f172a;
       border-radius: 50%;
       width: 30px;
       height: 30px;
@@ -202,20 +202,20 @@
       justify-content: center;
       cursor: pointer;
       font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 5px rgba(0,212,255,0.3);
     }
     
     nav {
       position: sticky;
       top:0;
       width:100%;
-      background: linear-gradient(90deg, #ff6a00, #ee0979, #ff6a00);
+      background: linear-gradient(90deg, #00a8cc, #005082, #00a8cc);
       display:flex;
       justify-content: space-between;
       align-items:center;
       padding:15px 30px;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       margin-left: 220px; flex:1;
       transition: margin-left 0.3s;
     }
@@ -224,7 +224,7 @@
     nav ul {list-style:none; display:flex;}
     nav ul li {margin-left:20px;}
     nav ul li a {color:#fff; text-decoration:none; font-weight:500;}
-    nav ul li a:hover {text-decoration:underline;}
+    nav ul li a:hover {text-decoration:underline; color:#00d4ff;}
     .content {flex:1; margin-left: 220px; transition: margin-left 0.3s;}
     .content.shifted {margin-left:0;}
     .hero {
@@ -244,35 +244,36 @@
     }
     .hero h1 {font-size:3rem; margin-bottom:20px; opacity:0; animation:fadeInUp .9s ease forwards; animation-delay: .2s;}
     .hero p {font-size:1.2rem; margin-bottom:30px; opacity:0; animation:fadeInUp .9s ease forwards; animation-delay: .45s;}
-    .hero a {text-decoration:none; background:#ff6a00; padding:12px 25px; color:#fff; border-radius:8px; font-weight:bold; transition:0.3s; opacity:0; animation:fadeInUp .9s ease forwards; animation-delay: .7s;}
-    .hero a:hover {background:#ee0979;}
+    .hero a {text-decoration:none; background:#00d4ff; padding:12px 25px; color:#0f172a; border-radius:8px; font-weight:bold; transition:0.3s; opacity:0; animation:fadeInUp .9s ease forwards; animation-delay: .7s;}
+    .hero a:hover {background:#00f0ff; transform: translateY(-3px);}
 
     section {padding:80px 20px; max-width:1100px; margin:auto; border-radius:20px; margin-bottom:30px;}
-    .about {text-align:center; background: linear-gradient(120deg, #f6d365, #fda085); color:#fff;}
-    .about h2 {margin-bottom:20px; color:#fff;}
-    .about p {max-width:700px; margin:auto; font-size:1rem; color:#fff;}
-    .departments {display:flex; flex-wrap:wrap; justify-content:center; gap:20px; background: linear-gradient(120deg, #a1c4fd, #c2e9fb); padding:50px 20px;}
-    .department-card {background:#fff; padding:30px; width:250px; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.1); text-align:center; transition:transform 0.3s, background 0.3s;}
-    .department-card:hover {transform: translateY(-10px); background: linear-gradient(135deg, #ff9a9e, #fad0c4);}
-    .department-card h3 {margin-bottom:10px; color:#ff6a00;}
-    .department-card p {font-size:0.95rem; color:#555;}
-    .login-box {background: linear-gradient(135deg, #84fab0, #8fd3f4); color:#333; padding:40px 30px; max-width:400px; margin:40px auto; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.2); text-align:center;}
-    .login-box h2 {margin-bottom:25px; color:#ff6a00;}
-    .login-box input {width: 100%; padding:12px 15px; margin:12px 0; border:1px solid #ccc; border-radius:8px; font-size:1rem;}
-    .login-box input:focus {border-color:#ff6a00; outline:none;}
-    .login-box select {width: 100%; padding:12px 15px; margin:12px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem;}
-    .login-box select:focus {border-color:#ff6a00; outline:none;}
-    .login-box button {width:100%; padding:12px 20px; border:none; border-radius:8px; background:#ff6a00; color:#fff; font-size:1rem; cursor:pointer; margin-top:15px; transition:0.3s;}
-    .login-box button:hover {background:#ee0979;}
-    .contact {background: linear-gradient(135deg, #ffecd2, #fcb69f); color:#333; text-align:center; padding:80px 20px;}
-    .contact h2 {margin-bottom:20px; color:#ff6a00;}
+    .about {text-align:center; background: linear-gradient(120deg, #1a3a52, #0f2f4a); color:#fff;}
+    .about h2 {margin-bottom:20px; color:#00d4ff;}
+    .about p {max-width:700px; margin:auto; font-size:1rem; color:#e0e0e0;}
+    .departments {display:flex; flex-wrap:wrap; justify-content:center; gap:20px; background: linear-gradient(120deg, #0f2f4a, #1a4d6d); padding:50px 20px;}
+    .department-card {background:#1a3a52; padding:30px; width:250px; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.3); text-align:center; transition:transform 0.3s, background 0.3s; border: 2px solid #00a8cc;}
+    .department-card:hover {transform: translateY(-10px); background: #0f2f4a; border-color: #00d4ff;}
+    .department-card h3 {margin-bottom:10px; color:#00d4ff;}
+    .department-card p {font-size:0.95rem; color:#b0b0b0;}
+    .login-box {background: linear-gradient(135deg, #1a3a52, #0f2f4a); color:#e0e0e0; padding:40px 30px; max-width:400px; margin:40px auto; border-radius:15px; box-shadow:0 10px 20px rgba(0,0,0,0.3); text-align:center; border: 2px solid #00a8cc;}
+    .login-box h2 {margin-bottom:25px; color:#00d4ff;}
+    .login-box input {width: 100%; padding:12px 15px; margin:12px 0; border:1px solid #00a8cc; border-radius:8px; font-size:1rem; background:#0d1f2d; color:#e0e0e0;}
+    .login-box input:focus {border-color:#00d4ff; outline:none; box-shadow: 0 0 8px rgba(0,212,255,0.3);}
+    .login-box select {width: 100%; padding:12px 15px; margin:12px 0; border-radius:8px; border:1px solid #00a8cc; font-size:1rem; background:#0d1f2d; color:#e0e0e0;}
+    .login-box select:focus {border-color:#00d4ff; outline:none; box-shadow: 0 0 8px rgba(0,212,255,0.3);}
+    .login-box button {width:100%; padding:12px 20px; border:none; border-radius:8px; background:#00d4ff; color:#0f172a; font-size:1rem; cursor:pointer; margin-top:15px; transition:0.3s; font-weight:bold;}
+    .login-box button:hover {background:#00f0ff; transform: translateY(-2px);}
+    .contact {background: linear-gradient(135deg, #1a3a52, #0f2f4a); color:#e0e0e0; text-align:center; padding:80px 20px;}
+    .contact h2 {margin-bottom:20px; color:#00d4ff;}
     .contact form {max-width:500px; margin:auto; display:flex; flex-direction:column;}
-    .contact input, .contact textarea {padding:12px; margin:10px 0; border-radius:8px; border:1px solid #ccc; font-size:1rem; resize:none;}
-    .contact button {padding:12px; border:none; border-radius:8px; background:#ff6a00; color:#fff; font-weight:bold; cursor:pointer; transition:0.3s;}
-    .contact button:hover {background:#ee0979;}
-    footer {background: linear-gradient(90deg, #1a2a6c, #b21f1f, #fdbb2d); color:#fff; text-align:center; padding:20px;}
-    footer a {color:#fff; text-decoration:none; margin:0 10px;}
-    footer a:hover {text-decoration:underline;}
+    .contact input, .contact textarea {padding:12px; margin:10px 0; border-radius:8px; border:1px solid #00a8cc; font-size:1rem; resize:none; background:#0d1f2d; color:#e0e0e0;}
+    .contact input:focus, .contact textarea:focus { border-color:#00d4ff; outline:none; box-shadow: 0 0 8px rgba(0,212,255,0.3); }
+    .contact button {padding:12px; border:none; border-radius:8px; background:#00d4ff; color:#0f172a; font-weight:bold; cursor:pointer; transition:0.3s;}
+    .contact button:hover {background:#00f0ff; transform: translateY(-2px);}
+    footer {background: linear-gradient(90deg, #0f172a, #1a3a52, #0f172a); color:#b0b0b0; text-align:center; padding:20px; border-top: 2px solid #00a8cc;}
+    footer a {color:#00d4ff; text-decoration:none; margin:0 10px;}
+    footer a:hover {color:#00f0ff; text-decoration:underline;}
 
     @media(max-width:768px) {
       body {flex-direction: column;}
@@ -345,7 +346,169 @@
 
       /* Ensure the dashboard toggle does not collide with nav - move it slightly down */
       .toggle-btn { top: 72px !important; left: 12px !important; }
+
+      /* Mobile-specific animation tweaks */
+      @media (hover: none) and (pointer: coarse) {
+        /* Disable animations on touch devices to reduce battery drain */
+        .animate-glow, .animate-pulse-scale, .animate-shimmer { animation: none !important; }
+        /* Tap feedback instead of hover */
+        button, a { padding: 14px 16px; border-radius: 8px; }
+      }
+
+      /* Larger touch targets on mobile */
+      nav ul li a { padding: 12px 16px; display: block; }
+      .login-box input { min-height: 44px; }
+      .login-box select { min-height: 44px; }
+      .login-box button { min-height: 48px; }
+      .contact form input { min-height: 44px; }
+      .contact form textarea { min-height: 100px; padding: 12px; }
+      .contact form button { min-height: 48px; }
+
+      /* Responsive department cards stack better */
+      .department-card { width: 100%; max-width: 300px; }
+
+      /* Mobile menu animation */
+      nav ul.open {
+        animation: slideDown .3s ease forwards;
+      }
+      @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Improve readability on smaller screens */
+      .hero h1 { line-height: 1.3; }
+      .hero p { line-height: 1.5; margin-bottom: 20px; }
+      
+      /* Dashboard text sizing */
+      .dashboard h2 { font-size: 1.1rem; }
+      .dashboard p { font-size: 0.9rem; padding: 8px 12px; margin-bottom: 10px; }
     }
+
+    /* Extra small devices (< 360px) */
+    @media(max-width:360px) {
+      nav { padding: 8px 8px; }
+      nav .logo { font-size: 1rem; }
+      .menu-toggle { font-size: 1.2rem; }
+      .hero { padding: 30px 12px; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 0.95rem; }
+      section { padding: 30px 10px; }
+      .login-box { max-width: 98%; margin: 15px auto; padding: 18px 14px; }
+      .login-box input, .login-box select { padding: 12px 10px; font-size: 0.95rem; }
+      .contact form input { padding: 12px 10px; }
+      .dashboard h2 { font-size: 1rem; }
+      .toggle-btn { width: 40px !important; height: 40px !important; }
+    }
+
+    /* Tablets (768px - 1024px) - enhance tablet experience */
+    @media(min-width:769px) and (max-width:1024px) {
+      .dashboard { width: 200px; }
+      nav { margin-left: 200px; }
+      .content { margin-left: 200px; }
+      .department-card { width: calc(50% - 10px); }
+      .departments { gap: 15px; }
+    }
+    /* ------------------ Animation utilities ------------------ */
+    /* Respect users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .animate, .animate-fade-in, .animate-slide-up, .animate-pop, .animate-bounce { animation: none !important; transition: none !important; }
+    }
+
+    .animate { opacity: 0; transform: translateY(12px); transition: opacity .45s ease-out, transform .45s ease-out; }
+    .animate.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* Fancier named utility classes for JS-triggered animations */
+    @keyframes fadeInQuick { from { opacity: 0 } to { opacity: 1 } }
+    .animate-fade-in { opacity: 0; animation: fadeInQuick .6s ease forwards; }
+
+    @keyframes slideUpSoft { from { transform: translateY(18px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+    .animate-slide-up { animation: slideUpSoft .6s cubic-bezier(.2,.9,.2,1) forwards; }
+
+    @keyframes popIn { from { transform: scale(.94); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+    .animate-pop { animation: popIn .42s cubic-bezier(.2,.9,.2,1) forwards; }
+
+    @keyframes smallBounce { 0% { transform: translateY(0) } 30% { transform: translateY(-8px) } 60% { transform: translateY(0) } 100% { transform: translateY(0) } }
+    .animate-bounce { animation: smallBounce .9s ease; }
+
+    /* helper for stagger delays applied inline by JS */
+    .stagger { will-change: opacity, transform; }
+
+    /* Enhanced smooth transitions for buttons and inputs */
+    input, select, button, a { transition: all .3s cubic-bezier(.2,.9,.2,1); }
+    button:hover, input:focus { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+    
+    @keyframes shimmer { from { background-position: -1000px 0; } to { background-position: 1000px 0; } }
+    .animate-shimmer { background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.3), rgba(255,255,255,0)); background-size: 1000px 100%; animation: shimmer 2s infinite; }
+    
+    @keyframes glow { 0%, 100% { box-shadow: 0 0 5px rgba(255,20,147,0.8); } 50% { box-shadow: 0 0 20px rgba(255,215,0,1); } }
+    .animate-glow { animation: glow 2s ease-in-out infinite; }
+    
+    @keyframes pulse-scale { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .animate-pulse-scale { animation: pulse-scale 1.5s ease-in-out infinite; }
+    
+    @keyframes float-up { from { transform: translateY(0); opacity: 0; } to { transform: translateY(-20px); opacity: 1; } }
+    .animate-float-up { animation: float-up .8s cubic-bezier(.2,.9,.2,1) forwards; }
+  
+    /* ---------------- Theme variables (AI-trending: Glassmorphism + cyan accents) ---------------- */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #ff0080, #ff8c00, #40e0d0, #ff0080, #00d4ff, #ff1493, #ffd700);
+      --surface: rgba(255,255,255,0.12);
+      --text: #ffffff;
+      --text-light: #f5f5f5;
+      --muted: #e0e0e0;
+      --accent: #ff1493;
+      --accent-2: #00d4ff;
+      --glass-bg: rgba(255,255,255,0.08);
+      --glass-blur: 12px;
+      --card-border: rgba(255,20,147,0.3);
+    }
+    
+    @keyframes rainbow-rotate {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    body { 
+      background: var(--bg-gradient) !important;
+      background-size: 400% 400% !important;
+      animation: rainbow-rotate 8s ease infinite !important;
+    }
+
+    /* Trending glassy frosted surfaces - REMOVED (keeping only rainbow) */
+
+    /* Apply variables to key components (lightweight overrides) */
+    body { background: var(--bg-gradient) !important; color: var(--text) !important; }
+    nav { background: linear-gradient(90deg, #ff1493, #ff8c00, #ffd700, #00d4ff, #ff1493) !important; animation: rainbow-rotate 6s ease infinite; background-size: 300% 300%; color: #ffffff; }
+    nav .logo { color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    nav ul li a { color: #ffffff; }
+    .dashboard { background: linear-gradient(135deg, rgba(255,20,147,0.2), rgba(0,212,255,0.2)) !important; color: #ffffff !important; border: 2px solid #ff1493; }
+    .dashboard h2 { color: #ffffff !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .dashboard p { background: rgba(255,20,147,0.15) !important; color: #ffffff !important; border: 1px solid #ff1493; font-weight: 600; }
+    .hero { color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .hero h1 { color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .hero p { color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+    .hero a { background: linear-gradient(90deg, #ff1493, #ff8c00) !important; color: #ffffff !important; font-weight:bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+    .hero a:hover { background: linear-gradient(90deg, #ff8c00, #ffd700) !important; }
+    .about { color: #ffffff; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+    .about h2 { color: #ffffff !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .about p { color: #ffffff !important; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+    .department-card { background: rgba(255,20,147,0.08) !important; color: #ffffff !important; border: 2px solid #ff1493 !important; }
+    .department-card h3 { color: #ffffff !important; text-shadow: 1px 1px 2px rgba(255,215,0,0.5); }
+    .department-card p { color: #ffffff !important; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+    .department-card:hover { background: rgba(0,212,255,0.08) !important; border-color: #00d4ff !important; }
+    .login-box, .contact { background: rgba(255,20,147,0.1) !important; color: #ffffff !important; border: 2px solid #ff1493 !important; }
+    .login-box h2, .contact h2 { color: #ffffff !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .login-box input, .contact input, .contact textarea, .login-box select { background: rgba(255,255,255,0.95) !important; color: #000000 !important; border: 3px solid #00d4ff !important; font-weight: 600; }
+    .login-box input::placeholder, .contact input::placeholder, .contact textarea::placeholder { color: #000000; opacity: 0.6; }
+    .login-box input:focus, .contact input:focus, .contact textarea:focus, .login-box select:focus { border-color: #ffd700 !important; box-shadow: 0 0 15px rgba(255,215,0,0.7) !important; background: #ffffff !important; }
+    .login-box button, .contact button { background: linear-gradient(90deg, #ff1493, #ffd700) !important; color: #ffffff !important; font-weight:bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+    .login-box button:hover, .contact button:hover { background: linear-gradient(90deg, #ffd700, #00d4ff) !important; }
+    footer { background: linear-gradient(90deg, rgba(255,20,147,0.2), rgba(255,140,0,0.2), rgba(255,215,0,0.2)) !important; color: #ffffff !important; border-top: 3px solid #ff1493 !important; }
+    footer a { color: #00d4ff !important; font-weight: bold; }
+    footer a:hover { color: #ffd700 !important; }
+
   </style>
 </head>
 <body>
@@ -619,7 +782,160 @@
       });
     });
 
-    
+    // ======= Animations: load + scroll reveal helpers =======
+    (function(){
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Simple entrance sequence for important items on DOMContentLoaded
+      function entranceSequence(){
+        if (reduceMotion) {
+          // make everything visible if user asked reduced motion
+          document.querySelectorAll('#navbar, .hero h1, .hero p, .hero a, section, .department-card, .login-box, .contact form, footer').forEach(el => {
+            el.style.opacity = 1;
+            el.style.transform = 'none';
+          });
+          return;
+        }
+
+        // Navbar + hero entrance
+        const initial = Array.from(document.querySelectorAll('#navbar, .hero h1, .hero p, .hero a'));
+        initial.forEach((el, i) => {
+          el.classList.add('stagger');
+          el.classList.add('animate-fade-in');
+          el.style.animationDelay = (i * 120) + 'ms';
+        });
+
+        // Glow effect on CTA button
+        const ctaButton = document.querySelector('.hero a');
+        if (ctaButton) {
+          setTimeout(() => ctaButton.classList.add('animate-glow'), 800);
+        }
+
+        // Use IntersectionObserver for scroll reveals
+        const revealOptions = { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.12 };
+        const revealObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              // prefer slide-up for sections and pop for small cards
+              if (el.classList && el.classList.contains('department-card')) {
+                el.classList.add('animate-pop');
+              } else if (el.classList && el.classList.contains('login-box')) {
+                el.classList.add('animate-slide-up');
+                // Animate form inputs staggered
+                setTimeout(() => animateFormInputs(el.querySelectorAll('input, select')), 200);
+              } else {
+                el.classList.add('animate-slide-up');
+              }
+              el.classList.add('is-visible');
+              obs.unobserve(el);
+            }
+          });
+        }, revealOptions);
+
+        const toReveal = document.querySelectorAll('section, .department-card, .login-box, .contact form, footer');
+        toReveal.forEach((el, idx) => {
+          // initial invisible state
+          el.classList.add('animate');
+          // stagger via inline delay for a smoother cascade
+          el.style.transitionDelay = (idx * 80) + 'ms';
+          revealObserver.observe(el);
+        });
+
+        // Animate form inputs when they come into view
+        function animateFormInputs(inputs) {
+          inputs.forEach((input, idx) => {
+            input.classList.add('animate-fade-in');
+            input.style.animationDelay = (idx * 100) + 'ms';
+          });
+        }
+
+        // playful scale pulse on department hover
+        document.querySelectorAll('.department-card').forEach(card => {
+          card.addEventListener('mouseenter', () => {
+            if (reduceMotion) return;
+            card.classList.add('animate-pulse-scale');
+          });
+          card.addEventListener('mouseleave', () => {
+            card.classList.remove('animate-pulse-scale');
+          });
+        });
+
+        // Add shimmer to login button on hover
+        const loginBtn = document.querySelector('.login-box button');
+        if (loginBtn) {
+          loginBtn.addEventListener('mouseenter', () => {
+            if (!reduceMotion) loginBtn.classList.add('animate-shimmer');
+          });
+          loginBtn.addEventListener('mouseleave', () => {
+            loginBtn.classList.remove('animate-shimmer');
+          });
+        }
+
+        // Add float-up animation to footer links on hover
+        document.querySelectorAll('footer a').forEach(link => {
+          link.addEventListener('mouseenter', () => {
+            if (!reduceMotion) link.classList.add('animate-float-up');
+          });
+        });
+
+        // Mobile-specific touch interactions
+        const isMobileDevice = () => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isTouchDevice = () => (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+        
+        if (isTouchDevice()) {
+          // Replace hover effects with tap feedback on touch devices
+          document.querySelectorAll('.department-card').forEach(card => {
+            card.addEventListener('touchstart', () => {
+              card.style.opacity = '0.9';
+              card.style.transform = 'scale(0.98)';
+            });
+            card.addEventListener('touchend', () => {
+              card.style.opacity = '1';
+              card.style.transform = 'scale(1)';
+            });
+          });
+
+          // Better button feedback on tap
+          document.querySelectorAll('button, .hero a').forEach(btn => {
+            btn.addEventListener('touchstart', () => {
+              btn.style.transform = 'scale(0.95)';
+              btn.style.opacity = '0.8';
+            });
+            btn.addEventListener('touchend', () => {
+              btn.style.transform = 'scale(1)';
+              btn.style.opacity = '1';
+            });
+          });
+
+          // Swipe to close dashboard on mobile
+          let touchStartX = 0;
+          let touchEndX = 0;
+          document.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, false);
+          document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            // Swipe right (>100px) to open dashboard, swipe left to close
+            if (touchStartX < 100 && touchEndX - touchStartX > 100 && dashboard.classList.contains('hidden')) {
+              toggleBtn.click();
+            } else if (touchEndX - touchStartX < -80 && !dashboard.classList.contains('hidden')) {
+              toggleBtn.click();
+            }
+          }, false);
+
+          // Disable glow animations on touch devices to save battery
+          if (ctaButton) {
+            ctaButton.classList.remove('animate-glow');
+          }
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', entranceSequence);
+      } else {
+        entranceSequence();
+      }
+    })();
+
   </script>
 </body>
 </html>
